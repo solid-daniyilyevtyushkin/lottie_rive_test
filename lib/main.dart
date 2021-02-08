@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'lottie_animation.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -13,7 +15,23 @@ class MyApp extends StatelessWidget {
         body: Row(
           children: [
             Column(
-              children: [],
+              children: [
+                SizedBox(
+                  height: 100.0,
+                  width: 100.0,
+
+                  /// Works on `flutter run -d chrome --dart-define=FLUTTER_WEB_USE_SKIA=true`
+                  /// Doesn't work on HTML
+                  /// https://github.com/flutter/flutter/issues/60461
+
+                  child: LottieAnimation(
+                    asset: 'assets/lottie_file.json',
+                    repeat: true,
+                    reverse: true,
+                    animate: true,
+                  ),
+                )
+              ],
             ),
           ],
         ),
